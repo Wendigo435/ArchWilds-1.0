@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d5341c7414ef54f8345d1b3d9a04fa, type: 3}
+  m_Name: Pickaxe
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemID: 3
+  itemName: Pickaxe
+  icon: {fileID: 21300000, guid: ce7bb0eedc19e2d4886f173929378029, type: 3}
+  worldPrefab: {fileID: 9134518202938096148, guid: ce065135dd2aece4690fc1ab4d8a80d6, type: 3}
+  stackable: 1
+  equipPrefab: {fileID: 2788724812101801258, guid: b105ff5acac1b404ebe074d323bf53d7, type: 3}
+  toolType: 1

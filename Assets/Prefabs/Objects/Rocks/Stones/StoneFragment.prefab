@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417881672590523942}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   itemID: 1
   amount: 1
   autoPickup: 1
+  attractDelay: 1.5
   attractRange: 3
   attractSpeed: 8
   pickupRange: 0.5

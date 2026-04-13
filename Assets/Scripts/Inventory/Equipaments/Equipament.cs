@@ -15,6 +15,7 @@ public class Equipment : NetworkBehaviour
     private GameObject equippedObject;
     private PlayerInventory playerInventory;
 
+
     void Awake()
     {
         playerInventory = GetComponent<PlayerInventory>();
@@ -53,6 +54,13 @@ public class Equipment : NetworkBehaviour
 
     public void EquipSlot(int index)
     {
+        GameObject uiObj = GameObject.FindWithTag("InventoryUI");
+        if (uiObj != null)
+        {
+            InventoryUI ui = uiObj.GetComponent<InventoryUI>();
+            if (ui != null) ui.UpdateHotbarSelection(index);
+        }
+
         if (playerInventory == null) return;
         if (index >= playerInventory.inventory.Count) return;
 
@@ -79,7 +87,6 @@ public class Equipment : NetworkBehaviour
 
         equippedObject = Instantiate(data.equipPrefab, HandR);
         equippedObject.transform.localPosition = Vector3.zero;
-        equippedObject.transform.localRotation = Quaternion.identity;
 
         CmdSetEquipped(item.itemID);
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Mirror;
 using System.Collections.Generic;
 
@@ -17,23 +18,42 @@ public class InventoryUI : MonoBehaviour
     public static bool isOpen;
     private PlayerInventory localPlayer;
 
+    [Header("Hotbar Selection")]
+    public List<Image> hotbarBorders = new List<Image>();
+    public Color selectedColor = Color.white;
+    public Color unselectedColor = new Color(1, 1, 1, 0.3f);
+
     void Awake()
     {
         inventoryPanel.SetActive(false);
         isOpen = false;
+
+        for (int i = 0; i < hotbarBorders.Count; i++)
+            if (hotbarBorders[i] != null)
+                hotbarBorders[i].color = unselectedColor;
+    }
+
+
+    public void UpdateHotbarSelection(int index)
+    {
+        for (int i = 0; i < hotbarBorders.Count; i++)
+        {
+            if (hotbarBorders[i] == null) continue;
+            hotbarBorders[i].color = i == index ? selectedColor : unselectedColor;
+        }
     }
 
     public void BindPlayer(PlayerInventory player)
     {
         localPlayer = player;
 
-        // Configura índices dos slots
         for (int i = 0; i < hotbarSlots.Count; i++)
             if (hotbarSlots[i] != null) hotbarSlots[i].myIndex = i;
 
         for (int i = 0; i < inventorySlots.Count; i++)
             if (inventorySlots[i] != null) inventorySlots[i].myIndex = i + hotbarSlots.Count;
 
+        UpdateHotbarSelection(0);
         RefreshUI(player.inventory);
     }
 

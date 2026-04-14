@@ -86,7 +86,7 @@ public class Equipment : NetworkBehaviour
         }
 
         equippedObject = Instantiate(data.equipPrefab, HandR);
-        equippedObject.transform.localPosition = Vector3.zero;
+        equippedObject.transform.localPosition = new Vector3(0f, -0.5f, 0f);
 
         CmdSetEquipped(item.itemID);
     }

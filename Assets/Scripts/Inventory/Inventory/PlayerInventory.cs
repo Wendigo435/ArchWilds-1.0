@@ -167,7 +167,7 @@ public class PlayerInventory : NetworkBehaviour
 
         if (dataSO != null && dataSO.worldPrefab != null)
         {
-            Vector3 spawnPos = playerPosition + Vector3.up * 0.5f;
+            Vector3 spawnPos = playerPosition + Vector3.forward * 0.1f;
             GameObject dropped = Instantiate(dataSO.worldPrefab, spawnPos, Quaternion.identity);
 
             if (dropped.TryGetComponent(out PickupItem pickup))

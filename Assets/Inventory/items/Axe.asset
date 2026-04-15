@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14d5341c7414ef54f8345d1b3d9a04fa, type: 3}
-  m_Name: Pickaxe
+  m_Name: Axe
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemID: 3
-  itemName: Pickaxe
+  itemID: 4
+  itemName: Axe
   icon: {fileID: 21300000, guid: ce7bb0eedc19e2d4886f173929378029, type: 3}
-  worldPrefab: {fileID: 9134518202938096148, guid: ce065135dd2aece4690fc1ab4d8a80d6, type: 3}
+  worldPrefab: {fileID: 8383104256286577473, guid: 095174765ad8c704c89118756a30d029, type: 3}
   stackable: 1
-  equipPrefab: {fileID: 2788724812101801258, guid: b105ff5acac1b404ebe074d323bf53d7, type: 3}
-  toolType: 1
-  damage: 10
+  equipPrefab: {fileID: 2788724812101801258, guid: 9c21b6713cd42a24ab310a761bc12f26, type: 3}
+  toolType: 2
+  damage: 20
   range: 3
   attackCooldown: 0.1
   equipPos: {x: 0, y: -0.5, z: 0}
-  equipRot: {x: 0, y: 90, z: 0}
+  equipRot: {x: 0, y: 0, z: 0}

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6600729437990044452}
   - component: {fileID: 6845115163744495912}
   - component: {fileID: 4562111699935138276}
-  - component: {fileID: 4344050276813745932}
+  - component: {fileID: -4952665621689665201}
   m_Layer: 6
-  m_Name: PickaxeE
+  m_Name: AxeE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2788724812101801258}
-  m_Mesh: {fileID: 4987632398419711469, guid: f572b315187f0ed49bf25156ce95e4ec, type: 3}
+  m_Mesh: {fileID: -8287839383430266118, guid: 6c7a8fb471103c742b1a2e2d3dd95350, type: 3}
 --- !u!23 &4562111699935138276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c1d1d03f2ba88af4499592e2cfdbf0c8, type: 2}
+  - {fileID: 2100000, guid: 456ab7a78196d5a4e9b3e40ed08972ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,7 +91,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4344050276813745932
+--- !u!114 &-4952665621689665201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

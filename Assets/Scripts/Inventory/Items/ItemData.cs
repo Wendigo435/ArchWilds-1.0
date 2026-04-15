@@ -10,4 +10,11 @@ public class ItemData : ScriptableObject
     public bool stackable = true;
     public GameObject equipPrefab;
     public ToolType toolType;
+
+    [Header("Equipamento")]
+    public float damage;
+    public float range;
+    public float attackCooldown;
+    public Vector3 equipPos;
+    public Vector3 equipRot;
 }

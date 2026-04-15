@@ -130,21 +130,15 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  MaxHealth: 100
-  CurrentHealth: 0
+  maxHealth: 100
   requiredTool: 1
-  fragmentPrefab: {fileID: 6417881672590523942, guid: 139457937284dee4987df7d405c551d2, type: 3}
-  fragmentMeshes:
-  - {fileID: -5495902117074765545, guid: 06d7a6ff0c3a39c4d9eac986815ea9c2, type: 3}
-  - {fileID: 4493585093827132993, guid: 06d7a6ff0c3a39c4d9eac986815ea9c2, type: 3}
-  - {fileID: -1550514412580984892, guid: 06d7a6ff0c3a39c4d9eac986815ea9c2, type: 3}
-  fragmentCount: 5
-  fragmentForce: 3
-  itemID: 2
-  minAmount: 3
-  maxAmount: 6
-  shakeDuration: 0.2
+  gfxModel: {fileID: 4487684796799804206}
+  shakeDuration: 0.1
   shakeMagnitude: 0.1
+  dropPrefab: {fileID: 6417881672590523942, guid: 139457937284dee4987df7d405c551d2, type: 3}
+  minDrop: 5
+  maxDrop: 5
+  spawnRadius: 0.5
 --- !u!114 &7320548491526049941
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -86,7 +86,11 @@ public class Equipment : NetworkBehaviour
         }
 
         equippedObject = Instantiate(data.equipPrefab, HandR);
-        equippedObject.transform.localPosition = new Vector3(0f, -0.5f, 0f);
+        var usable = equippedObject.GetComponent<EquipItem>();
+        if (usable == null) usable = equippedObject.AddComponent<EquipItem>();
+        equippedObject.transform.localPosition = data.equipPos;
+        equippedObject.transform.localEulerAngles = data.equipRot;
+        usable.Initialize(data, isLocalPlayer, this);
 
         CmdSetEquipped(item.itemID);
     }
@@ -116,8 +120,11 @@ public class Equipment : NetworkBehaviour
         if (data == null || data.equipPrefab == null) return;
 
         equippedObject = Instantiate(data.equipPrefab, HandR);
-        equippedObject.transform.localPosition = Vector3.zero;
-        equippedObject.transform.localRotation = Quaternion.identity;
+        var usable = equippedObject.GetComponent<EquipItem>();
+        if (usable == null) usable = equippedObject.AddComponent<EquipItem>();
+        equippedObject.transform.localPosition = data.equipPos;
+        equippedObject.transform.localEulerAngles = data.equipRot;
+        usable.Initialize(data, isLocalPlayer, this);
     }
 
     [Command]

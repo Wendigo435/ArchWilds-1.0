@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7189514188053218047}
   - component: {fileID: 6124329412610109814}
   m_Layer: 0
-  m_Name: StoneFragment
+  m_Name: StoneFragment 2
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6417881672590523942}
-  m_Mesh: {fileID: 2326393510636921199, guid: 8023ed4164c93eb4fbf609255cbd4c9b, type: 3}
+  m_Mesh: {fileID: -2577959665088547271, guid: 8023ed4164c93eb4fbf609255cbd4c9b, type: 3}
 --- !u!23 &3597590031754038402
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Mirror::Mirror.NetworkIdentity
   sceneId: 0
-  _assetId: 3419839882
+  _assetId: 3592684127
   serverOnly: 0
   visibility: 0
   hasSpawned: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using Mirror;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DestructibleObject : NetworkBehaviour, IDestructible
 {
@@ -14,15 +15,16 @@ public class DestructibleObject : NetworkBehaviour, IDestructible
     public ToolType RequiredTool => requiredTool;
 
     [Header("Visual & Feedback")]
-    public GameObject gfxModel; // O modelo visual que pode sumir ou tremer
+    public GameObject gfxModel;
     public float shakeDuration = 0.15f;
     public float shakeMagnitude = 0.05f;
     private Vector3 originalPos;
 
-    [Header("Loot / Fragmentos")]
-    public GameObject dropPrefab; // O que vai spawnar quando quebrar
-    public int minDrop = 1;
-    public int maxDrop = 3;
+    [Header("Loot Aleatório")]
+    // Agora temos uma lista de possíveis prefabs para dropar
+    public GameObject[] possibleDrops;
+    public int minDropAmount = 1;
+    public int maxDropAmount = 3;
     public float spawnRadius = 0.5f;
 
     public override void OnStartServer()
@@ -54,7 +56,6 @@ public class DestructibleObject : NetworkBehaviour, IDestructible
     {
         StopAllCoroutines();
         StartCoroutine(ShakeEffect());
-        // Aqui você pode adicionar som de impacto genérico ou partículas
     }
 
     IEnumerator ShakeEffect()
@@ -72,24 +73,29 @@ public class DestructibleObject : NetworkBehaviour, IDestructible
     [Server]
     void Break()
     {
-        // Spawna o loot configurado
-        int amount = Random.Range(minDrop, maxDrop + 1);
-        for (int i = 0; i < amount; i++)
+        if (possibleDrops != null && possibleDrops.Length > 0)
         {
-            Vector3 randomPos = transform.position + Random.insideUnitSphere * spawnRadius + Vector3.up;
-            GameObject loot = Instantiate(dropPrefab, randomPos, Quaternion.identity);
+            int totalToSpawn = Random.Range(minDropAmount, maxDropAmount + 1);
 
-            // Se o seu dropPrefab tiver o script de Pickup, você pode configurar o ID aqui
-            // if(loot.TryGetComponent(out PickupItem p)) p.SetData(...);
+            for (int i = 0; i < totalToSpawn; i++)
+            {
+                // SORTEIO: Escolhe um índice aleatório da lista de modelos
+                int randomIndex = Random.Range(0, possibleDrops.Length);
+                GameObject selectedPrefab = possibleDrops[randomIndex];
 
-            NetworkServer.Spawn(loot);
+                if (selectedPrefab != null)
+                {
+                    Vector3 randomPos = transform.position + Random.insideUnitSphere * spawnRadius + Vector3.up;
+                    GameObject loot = Instantiate(selectedPrefab, randomPos, Quaternion.identity);
+
+                    // Registra o objeto na rede Mirror
+                    NetworkServer.Spawn(loot);
+                }
+            }
         }
 
         NetworkServer.Destroy(gameObject);
     }
 
-    void OnHealthChanged(float oldV, float newV)
-    {
-        // Hook para garantir que quem entrar no meio da partida veja o estado atual se necessário
-    }
+    void OnHealthChanged(float oldV, float newV) { }
 }
